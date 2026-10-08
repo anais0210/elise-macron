@@ -1,0 +1,79 @@
+/* Maquette CV – feuille de style unique. Polices locales (dossier fonts/), aucune ressource externe. */
+@font-face{font-family:"Sora";src:url("fonts/sora-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Sora";src:url("fonts/sora-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("fonts/source-sans-3-latin-400-normal.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("fonts/source-sans-3-latin-600-normal.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Sans 3";src:url("fonts/source-sans-3-latin-700-normal.woff2") format("woff2");font-weight:700;font-style:normal;font-display:swap}
+
+:root{
+  --bg:#FFFFFF; --ink:#16161A; --muted:#4A4A55; --accent:#2F5BFF; --soft:#F3F5FB; --line:#D5D9E6;
+  --title:"Sora",system-ui,sans-serif; --text:"Source Sans 3",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.125rem/1.65 var(--text)}
+h1,h2,h3{font-family:var(--title);line-height:1.2;margin:0 0 .6em}
+h1{font-size:clamp(2rem,6vw,3.25rem);font-weight:700}
+h2{font-size:clamp(1.5rem,4vw,2rem);font-weight:700}
+h3{font-size:1.125rem;font-weight:700}
+p{margin:0 0 1em}
+a{color:var(--accent);text-underline-offset:.2em}
+a:hover{text-decoration-thickness:.15em}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+.wrap{max-width:60rem;margin:0 auto;padding:0 1rem}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:.75rem 1rem;z-index:10}
+.skip:focus{left:1rem;top:1rem}
+
+.maquette{background:var(--ink);color:#fff;font-size:.95rem;text-align:center;padding:.5rem 1rem}
+header.site{border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.5rem 1.5rem;padding-top:.75rem;padding-bottom:.75rem}
+.brand{display:flex;align-items:center;gap:.6rem;font:700 1.1rem var(--title);color:var(--ink);text-decoration:none}
+.brand img{width:2.5rem;height:2.5rem}
+nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin:0;padding:0}
+nav a{color:var(--ink);font-weight:600;text-decoration:none;padding:.4rem 0;display:inline-block}
+nav a:hover{color:var(--accent);text-decoration:underline}
+
+.hero{padding:4rem 0 3.5rem;background:var(--soft)}
+.hero .kicker{font:700 .9rem var(--title);letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.hero p.lead{font-size:1.3rem;max-width:40rem}
+
+section.block{padding:3.5rem 0}
+section.block + section.block{border-top:1px solid var(--line)}
+.intro{max-width:40rem;color:var(--muted)}
+
+/* Chronologie verticale */
+.timeline{list-style:none;margin:2rem 0 0;padding:0;position:relative}
+.timeline::before{content:"";position:absolute;top:0;bottom:0;left:.6rem;width:3px;background:var(--line)}
+.timeline li{position:relative;padding:0 0 2rem 2.5rem}
+.timeline li::before{content:"";position:absolute;left:0;top:.35rem;width:1.35rem;height:1.35rem;border-radius:50%;background:var(--bg);border:4px solid var(--accent)}
+.timeline .date{display:block;font:700 .95rem var(--title);color:var(--accent);margin-bottom:.25rem}
+.timeline h3{margin-bottom:.3em}
+.timeline p{margin:0;color:var(--muted)}
+@media (min-width:52em){
+  .timeline::before{left:50%;transform:translateX(-50%)}
+  .timeline li{width:50%;padding:0 3rem 2.5rem 0;text-align:right}
+  .timeline li:nth-child(even){margin-left:50%;padding:0 0 2.5rem 3rem;text-align:left}
+  .timeline li::before{left:auto;right:-.68rem}
+  .timeline li:nth-child(even)::before{right:auto;left:-.68rem}
+}
+
+/* Sport */
+.sports{list-style:none;display:grid;gap:1rem;margin:1.5rem 0;padding:0;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.sports li{display:flex;gap:1rem;align-items:center;background:var(--soft);border-radius:.75rem;padding:1.25rem}
+.sports img{width:4rem;height:4rem;flex:none}
+.sports h3{margin:0 0 .15em}
+.sports p{margin:0;color:var(--muted)}
+.note{font-size:.95rem;color:var(--muted)}
+
+.contact-box{background:var(--ink);color:#fff;border-radius:.75rem;padding:2rem}
+.contact-box a{color:#fff;font-weight:700}
+.contact-box :focus-visible{outline-color:#fff}
+
+footer.site{background:var(--soft);border-top:1px solid var(--line);padding:2rem 0;font-size:1rem}
+footer.site ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin:0 0 1rem;padding:0}
+footer.site p{margin:0;color:var(--muted)}
+
+/* Pages légales */
+.legal{padding:3rem 0;max-width:46rem}
+.legal h2{margin-top:2rem;font-size:1.35rem}
+.todo{background:#FFF7D6;border-left:4px solid #8A6A00;padding:.1rem .6rem;color:#4B3A00}
